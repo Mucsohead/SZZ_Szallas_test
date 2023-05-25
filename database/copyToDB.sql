@@ -1,4 +1,4 @@
--- copy testCompanyDB
+-- copy testCompanyDB (need to change the path)
 copy companies from '/home/szolzoli/test/testSzallasPHP7/database/testCompanyDB.csv' DELIMITER ';' CSV HEADER;
 
 -- set autoinc for the last companyId
