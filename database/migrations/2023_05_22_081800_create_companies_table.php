@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //create companies table
         Schema::create('companies', function (Blueprint $table) {
             $table->id('companyId');
             $table->string('companyName');
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->string('password');
         });
 
+        //Try to set "companyFoundationDate" to readonly
         try{
             $this->makeFoundationReadOnly();
         }catch (Exception $e){
@@ -43,7 +45,7 @@ return new class extends Migration
     }
 
     /**
-     * A "companyFoundationDate" oszlop értékének módosításának meggátolása
+     * Prevent modification of the value of the column "companyFoundationDate"
      * @return void
      */
     private function makeFoundationReadOnly(): void
