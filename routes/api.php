@@ -19,13 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Tudj felvinni új céget az adatbázisban
+Route::get('companies', [CompaniesController::class, 'getCompanies']);
 
-    Route::get('companies', [CompaniesController::class, 'getCompanies']);
-    Route::post('companies/new', [CompaniesController::class,'addCompany']);
-    Route::patch('companies/{companyId}', [CompaniesController::class,'updateCompany']);
+Route::post('companies/new', [CompaniesController::class, 'addCompany']);
 
-    Route::get('companies/by_activities',[CompaniesController::class, 'getCompaniesByActivities']);
-//Tudj lekérni adatokat ID-alapján egy adott cégről (több id-t is be lehet adni)
-
-//Tudj módosítani létező cégről adatokat
+Route::patch('companies/{companyId}', [CompaniesController::class, 'updateCompany']);
